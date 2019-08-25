@@ -8,6 +8,9 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
+/**
+ * @author solargen
+ */
 @Configuration
 public class RabbitConfig {
  
@@ -35,9 +38,7 @@ public class RabbitConfig {
  
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-    //必须是prototype类型
     public RabbitTemplate rabbitTemplate() {
-        RabbitTemplate template = new RabbitTemplate(connectionFactory());
-        return template;
+        return new RabbitTemplate(connectionFactory());
     }
 }
